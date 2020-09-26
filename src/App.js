@@ -4,6 +4,7 @@ import './css/App.css'
 import Header from './comp/Header'
 import Home from './comp/Home'
 import Checkout from './comp/Checkout'
+import Login from './comp/Login'
 
 const App = () => {
 	return(
@@ -13,6 +14,10 @@ const App = () => {
 				<Header />
 				
 				<Switch>
+					<Route path="/login">
+						<Login />
+					</Route>	
+
 					<Route path="/checkout">
 						<Checkout />
 					</Route>	
