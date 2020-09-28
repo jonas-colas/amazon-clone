@@ -7,8 +7,9 @@ import {CardElement, useStripe, useElements
 	} from '@stripe/react-stripe-js'
 import CurrencyFormat from 'react-currency-format'
 import {getBasketTotal} from '../core/reducer'
-import axios from '../core/axios'
-//import axios from 'axios'
+//import axios from '../core/axios'
+import axios from 'axios'
+import {db} from '../core/firebase'
 
 
 
@@ -26,15 +27,25 @@ function Payment() {
 	const [disabled, setDisabled] = useState(true)
 	const [clientSecret, setClientSecret] = useState(true)
 
-	//const	baseURL = 'http://localhost:5001/fir-6fa1d/us-central1/api'
-	//${baseURL}
+	const baseURL = 'http://localhost:5001/fir-6fa1d/us-central1/api';
+
+	/*const getClientSecret = () => {
+			axios({
+				method: 'post',
+				url: `${baseURL}/payments/create?total=${getBasketTotal(basket) * 100}`
+			}).then(response => {
+				console.log(response)
+				setClientSecret(response.data.clientSecret)
+			})
+		}*/
 
 	useEffect(() => {
 		
 		const getClientSecret = async () => {
 			const response = await axios({
 				method: 'post',
-				url: `/payments/create?total=${getBasketTotal(basket) * 100}`
+				//url: `/payments/create?total=${getBasketTotal(basket) * 100}`
+				url: `${baseURL}/payments/create?total=${getBasketTotal(basket) * 100}`
 			})
 			console.log(response.data.clientSecret)
 			setClientSecret(response.data.clientSecret)
@@ -43,7 +54,7 @@ function Payment() {
 		getClientSecret()
 	}, [basket])
 
-	console.log("the clientSecret is >>>", clientSecret)
+	//console.log("the clientSecret is >>>", clientSecret)
 
 	const handleSubmit = async (event) => {
 		event.preventDefault()
@@ -56,9 +67,22 @@ function Payment() {
 			}
 		}).then(({paymentIntent}) => {
 			//paymentIntent = payment confirmation
+
+			db.collection('users').doc(user?.uid).collection('orders').doc(paymentIntent.id)
+			.set({
+				basket: basket,
+				amount: paymentIntent.amount,
+				created: paymentIntent.created
+			})
+
 			setSucceeded(true)
 			setError(null)
 			setProcessing(false)
+
+			dispatch({
+				type: 'EMPTY_BASKET'
+			})
+
 			history.replace('/orders')
 		}).catch(error => console.log(error))
 	}	
@@ -115,9 +139,7 @@ function Payment() {
 							<div className="payment__priceContainer">
 								<CurrencyFormat 
 									renderText={(value) => (
-										<Fragment>
-    									<h3>Order Total: {value}</h3>
-										</Fragment>
+  									<h4>Order Total: {value}</h4>
 									)}
 									decimalScale={2} value={getBasketTotal(basket)} displayType={"text"}
 									thousandSeparator={true} prefix={"$"}
