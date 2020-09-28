@@ -27,18 +27,32 @@ function Header() {
 				<SearchIcon className="header__searchIcon" />
 			</div>
 			<div className="header__nav">
-					
-				<Link to={!user && "/login"}>
-					<div className="header__option"
-					onClick={handleAuthentication} >
-						<span className="header__optionLineOne">
-							{user ? user.email : 'Hello Guest'}
-						</span>
-						<span className="header__optionLineTwo">
-							{user ? 'Sign Out' : 'Sign In'}
-						</span>
-					</div>
-				</Link>
+				{user ? 
+						<Link to={"/"}>
+							<div className="header__option"
+							onClick={handleAuthentication} >
+								<span className="header__optionLineOne">
+									{user.email}
+								</span>
+								<span className="header__optionLineTwo">
+									{'Sign Out'}
+								</span>
+							</div>
+						</Link>
+					:
+						<Link to={"/login"}>
+							<div className="header__option"
+							onClick={handleAuthentication} >
+								<span className="header__optionLineOne">
+									{'Hello Guest'}
+								</span>
+								<span className="header__optionLineTwo">
+									{'Sign In'}
+								</span>
+							</div>
+						</Link>
+				}	
+
 				
 				<div className="header__option">
 					<span className="header__optionLineOne">

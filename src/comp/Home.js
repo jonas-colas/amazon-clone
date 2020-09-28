@@ -13,32 +13,42 @@ function Home() {
 				<div className="home__row">
 				
 					<Product id="124132233" title="The lean Startup: How Constant innovation Creates
-					Radically Successful Businesses Paperback" 
-					price={11.96} 
-					image="https://images-na.ssl-images-amazon.com/images/I/51Zymoq7UnL._AC_SY400_.jpg" rating={5} />
+						Radically Successful Businesses Paperback" 
+						price={11.96} 
+						image="https://images-na.ssl-images-amazon.com/images/I/51Zymoq7UnL._AC_SY400_.jpg" rating={5} />
+					
+					<Product id="433132233" title="Playstation 4 Pro 2TB Gaming Console with DualShock 4 
+						Wireless Controller Bundle, 4K HDR PS4 Pro 2TB Storage HDD Enhanced by Mytrix" 
+						price={519.99} 
+						image="https://images-na.ssl-images-amazon.com/images/I/71x5L6Vx6WL._AC_SY450_.jpg" rating={4} />
 
 					<Product id="456345345" 
-					title="Kenwood kMix Stand Mixer for Baking, Stylish kitchen Mixer with K-beater, 
-					Dough Hook and Whish, 5 Litre Glass Bowl"
-					 price={239.99} rating={4} 
-					image="https://images-na.ssl-images-amazon.com/images/I/91gRKbX%2BS8L._AC_SX679_.jpg" />
+						title="Kenwood kMix Stand Mixer for Baking, Stylish kitchen Mixer with K-beater, 
+						Dough Hook and Whish, 5 Litre Glass Bowl"
+					  price={239.99} rating={4} 
+						image="https://images-na.ssl-images-amazon.com/images/I/91gRKbX%2BS8L._AC_SX679_.jpg" />
 				
 				</div>
 				<div className="home__row">
 					
 					<Product id="97853439" title="Samsung LC5779343 49' Curved LED Gaming Monitor "
-					price={199.99} rating={3} 
-					image="https://images-na.ssl-images-amazon.com/images/I/71Swqqe7XAL._AC_SW466.jpg"
-						/>
+						price={199.99} rating={3} 
+						image="https://images-na.ssl-images-amazon.com/images/I/71Swqqe7XAL._AC_SW466.jpg"
+					/>
 					
 					<Product id="3935392334" title="Amazon Echo (3rd generation | Smart speaker
-					with Alexa, Charcoal Fabric " price={98.99} rating={5} 
-					image="https://media.very.co.uk/i/very/P6LTG_SQ1_0000000071_CHARCOAL_SLf?$300x400_retinamobilex2$" />
+						with Alexa, Charcoal Fabric " price={98.99} rating={5} 
+						image="https://media.very.co.uk/i/very/P6LTG_SQ1_0000000071_CHARCOAL_SLf?$300x400_retinamobilex2$" />
 					
 					<Product id="13423423523" title="New Apple iPad Pro (12.9-inch, Wi-Fi, 128GB) 
 					- Silver (4th Generation)" price={598.99} rating={4}
-					image="https://images-na.ssl-images-amazon.com/images/I/816ctt5WV5L._AC_SX385_.jpg"
-					 />
+						image="https://images-na.ssl-images-amazon.com/images/I/816ctt5WV5L._AC_SX385_.jpg"
+					/>
+				
+					<Product id="13423423523" title="Beats Studio3 Wireless Over-Ear Headphones
+					 - The Beats Decade Collection - Defiant Black-Red (Latest Model)" price={194.97} rating={5}
+						image="https://images-na.ssl-images-amazon.com/images/I/51jiNrIZnrL._AC_SX425_.jpg"
+				  />
 
 				</div>
 				<div className="home__row">
